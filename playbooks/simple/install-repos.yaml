@@ -1,0 +1,9 @@
+---
+- hosts: yoshi
+  become: yes
+
+  tasks:
+  - name: Install EPEL repo.
+    dnf: name=epel-release 
+         state=present
+    
