@@ -1,0 +1,10 @@
+---
+- hosts: example
+
+  vars:
+    foo: bar
+
+  tasks:
+    # Prints "Variable 'foo' is set to bar".
+    - debug:
+        msg: "Variable 'foo' is set to {{ foo }}"
