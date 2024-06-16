@@ -1,11 +1,10 @@
 ---
 - hosts: all
-  become: yes
+  become: true
 
   tasks:
   - name: Install EPEL repo
     ansible.builtin.dnf:
-      name: epel-release 
+      name: epel-release
       state: present
       update_cache: true
-    
