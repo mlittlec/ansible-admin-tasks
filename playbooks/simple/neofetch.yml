@@ -1,6 +1,6 @@
 ---
 - name: Install neofetch
-  hosts: debian
+  hosts: all
   gather_facts: true
 
   tasks:
@@ -9,3 +9,4 @@
         name: neofetch
         state: present
         update_cache: true
+      when: ansible_facts['os_family'] == 'Debian'
