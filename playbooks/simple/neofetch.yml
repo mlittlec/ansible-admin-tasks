@@ -1,9 +1,16 @@
 ---
 - name: Install neofetch
   hosts: all
-  gather_facts: true
+  gather_facts: false
 
   tasks:
+    - name: Gather facts
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - 'min'
+          - os_family
+
     - name: Install neofetch on Debian
       ansible.builtin.apt:
         name: neofetch
@@ -11,7 +18,6 @@
         update_cache: true
       when: ansible_facts['os_family'] == 'Debian'
 
-  tasks:
     - name: Install neofetch on Redhat
       ansible.builtin.dnf:
         name: neofetch
