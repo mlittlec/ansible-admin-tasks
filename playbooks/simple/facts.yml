@@ -1,0 +1,12 @@
+---
+- name: Gather facts
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Write facts to file
+      ansible.builtin.copy:
+        dest: redhat-facts.yml
+        content: "{{ ansible_facts | to_yaml }}"
+        mode: "0644"
+      delegate_to: localhost
