@@ -12,7 +12,7 @@
           - '!min'
           - 'os_family'
 
-    - name: Write facts to file
+    - name: Write facts to a YAML file
       ansible.builtin.copy:
         dest: redhat-facts.yml
         content: "{{ ansible_facts | to_yaml }}"
