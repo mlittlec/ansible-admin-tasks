@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: Become root
+    - name: Create user and add sudo privileges
       become: true
       block:
         - name: Create user
