@@ -17,9 +17,11 @@
         state: present
         update_cache: true
       when: ansible_facts['os_family'] == 'Debian'
+      become: true
 
     - name: Install neofetch on Redhat
       ansible.builtin.dnf:
         name: neofetch
         state: present
       when: ansible_facts['os_family'] == 'Redhat'
+      become: true
